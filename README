@@ -1,0 +1,6 @@
+Use like this:
+
+    bundle exec ruby e.rb > new_paltz.vcf
+
+Put your Yelp API key settings in a .env file.
+

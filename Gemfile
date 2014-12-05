@@ -1,0 +1,5 @@
+source 'https://rubygems.org'
+gem 'yelp'
+gem 'dotenv'
+gem 'json_pure'
+gem 'vcardigan'
