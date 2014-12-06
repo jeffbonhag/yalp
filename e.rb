@@ -12,12 +12,12 @@ Yelp.client.configure do |config|
   config.token_secret = ENV['TOKEN_SECRET']
 end
 
-def find_total
-  Yelp.client.search('New Paltz').total
+def find_total(query)
+  Yelp.client.search(query).total
 end
 
-def find_new_paltz_phone_numbers(offset)
-  results = Yelp.client.search('New Paltz', {offset: offset})
+def find_phone_numbers(query, offset)
+  results = Yelp.client.search(query, {offset: offset})
   results.businesses.each do |business|
     begin
       vcard = VCardigan.create
@@ -30,8 +30,9 @@ def find_new_paltz_phone_numbers(offset)
 end
 
 
-total = find_total
+query = 'new paltz'
+total = find_total(query)
 (0..total).step(20) do |offset|
-  find_new_paltz_phone_numbers(offset)
+  find_phone_numbers(query, offset)
 end
 
