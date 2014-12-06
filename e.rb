@@ -30,7 +30,7 @@ def find_phone_numbers(query, offset)
 end
 
 
-query = 'new paltz'
+query = ARGV[0] or raise "No query specified"
 total = find_total(query)
 (0..total).step(20) do |offset|
   find_phone_numbers(query, offset)
